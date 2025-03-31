@@ -1,11 +1,17 @@
 // backend.js
 const fetch = require("node-fetch");
+//const express = require('express');
+
+//const cors = require('cors');
 
 //const cors = require("cors");
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 require("dotenv").config();
 const express = require("express");
+const app = express(); // <-- This must come first!
+const cors = require('cors');
+
 const { ethers } = require("ethers");
 const axios = require("axios");
 const FormData = require("form-data");
