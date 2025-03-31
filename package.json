@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-     "start": "node backend.js"
+    "start": "node backend.js"
   },
   "keywords": [],
   "author": "",
@@ -24,5 +24,4 @@
     "web3": "^4.15.0"
   },
   "description": ""
-  
 }
