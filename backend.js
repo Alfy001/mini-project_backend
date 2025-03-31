@@ -190,7 +190,7 @@ async function getLatLngFromShortUrl(shortUrl) {
 
 
 
-const cors = require('cors'); // Ensure you have the 'cors' package installed
+//const cors = require('cors'); // Ensure you have the 'cors' package installed
 
 app.use(cors({
     origin: '*', // Allow all origins temporarily
