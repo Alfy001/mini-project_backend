@@ -29,6 +29,7 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const PINATA_API_KEY = process.env.PINATA_API_KEY;
 const PINATA_SECRET_API_KEY = process.env.PINATA_SECRET_API_KEY;
 const PORT = process.env.PORT || 3000;
+const { ethers } = require("ethers");
 
 
 // Initialize Ethers provider and wallet
