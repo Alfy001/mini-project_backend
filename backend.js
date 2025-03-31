@@ -2,9 +2,7 @@
 const fetch = require("node-fetch");
 //const express = require('express');
 
-//const cors = require('cors');
-
-//const cors = require("cors");
+// Removed redundant cors declarations
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 require("dotenv").config();
@@ -12,14 +10,14 @@ const express = require("express");
 const app = express(); // <-- This must come first!
 const cors = require('cors');
 
-const { ethers } = require("ethers");
+// Removed duplicate declaration
 const axios = require("axios");
 const FormData = require("form-data");
 const crypto = require("crypto");
 const fs = require("fs");
 const { supabase, supabaseAdmin } = require("./superbase");
 const { abi } = require("./hospital.json");
-const cors = require('cors');
+
 
 
 // Load environment variables
@@ -40,6 +38,11 @@ const wallet = new ethers.Wallet(PRIVATE_KEY, provider);
 // Create contract instance
 const hospitalContract = new ethers.Contract(CONTRACT_ADDRESS, abi, wallet);
 
+app.use(cors({
+    origin: '*', // Allow all origins temporarily
+    methods: 'GET,POST,PUT,DELETE',
+    credentials: true // Allow cookies if needed
+}));
 function generateUniqueId() {
     return crypto.randomBytes(32).toString("hex");
 }
@@ -196,13 +199,9 @@ async function getLatLngFromShortUrl(shortUrl) {
 
 
 
-//const cors = require('cors'); // Ensure you have the 'cors' package installed
+// Middleware to enable CORS
+// This should be placed before your routes to ensure CORS is applied to all requests
 
-app.use(cors({
-    origin: '*', // Allow all origins temporarily
-    methods: 'GET,POST,PUT,DELETE',
-    credentials: true // Allow cookies if needed
-}));
 async function sendMessageToChatbot(message) {
     try {
         const response = await axios.post(
